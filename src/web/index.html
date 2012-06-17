@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Subcomm UI Applet</title>
+  <meta name="description" content="An HTML5 UI applet that connects to SubComm game servers using the subcomm library.">
+  <meta name="author" content="Roy Laurie">
+  <link rel="stylesheet" href="css/subcomm-ui-web.css"/>
+  <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/SubcommUI.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/SubcommUIContainer.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/SubcommUISession.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/SubcommUIMessageTimer.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/SubcommUIUtility.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/dom/container.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/dom/tab/host.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/dom/tab/raw.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/dom/tab/chat.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/dom/tab/kills.js"></script>
+  <script type="text/javascript" src="js/subcomm-ui-web/dom/tab/project.js"></script>
+  <script type="text/javascript">
+  var gSubcommConfig = {
+      servers: [
+          {   name: 'SSTEST Test Server Alpha',
+              containerId: 'subcommContainerIndex',
+              hostname: '127.0.0.1',
+              port: 5005,
+          }
+      ]
+  };
+  </script>
+  <script type="text/javascript" src="js/subcomm-ui-web.js"></script>
+</head>
+<body>
+    <!-- SubComm - Applet. Should only be included once per page. -->
+  <object type="application/x-java-applet" class="subcommApplet" id="subcommUIApplet">
+    <param name="name" value="Subcomm UI Applet"/>
+    <param name="archive" value="subcomm-ui-web-1.0-SNAPSHOT.jar"/>
+    <param name="code" value="com.roylaurie.SubcommUIApplet"/>
+    <param name="codebase" value="jar/"/>
+  </object>
+  <!-- SubComm - Begin Container -->
+  <div class="subcommContainer" id="subcommContainerIndex">
+    <div class="subcommHeader"><p>SubComm</p></div>
+    <div class="subcommTab subcommTabHost">
+      <div class="subcommHostControl">
+          <form class="subcommForm subcommFormHostConnect">
+            <div class="subcommFormVerticalField" style="float: left;">
+              <label>Hostname</label>
+              <input type="text" name="hostname" class="subcommFormHostConnectHostname" style="width: 240px"/>
+            </div>
+            <div class="subcommFormVerticalField" style="float: left;">
+              <label>Port</label>
+              <input type="text" name="port" class="subcommFormHostConnectPort" style="width: 50px;" />
+            </div>
+            <div class="subcommFormVerticalField" style="float: left;">
+              <label>Server</label>
+              <select name="server" class="subcommFormHostConnectServer" style="width: 240px">
+                <option></option>
+              </select>
+            </div>
+            <div style="clear: both;"></div>
+             <div class="subcommFormVerticalField" style="float: left;">
+              <label>Username</label>
+              <input type="text" name="username" class="subcommFormHostConnectUsername" style="width: 240px"/>
+            </div>
+            <div class="subcommFormVerticalField" style="float: left;">
+              <label>Password</label>
+              <input type="password" name="password" class="subcommFormHostConnectPassword" style="width: 240px"/>
+            </div>
+            <div style="clear: both;"></div>
+            <button class="subcommTopicButton" style="margin: 8px 240px;">connect</button>          
+          </form>
+      </div>
+    </div><!-- subcommTabHost -->
+    <div class="subcommTab subcommTabRaw" style="display: none;">
+  	  <div class="subcommHistory subcommHistoryRaw"></div>
+  	  <div class="subcommInput subcommInputRaw">
+	    <form class="subcommInputForm subcommInputFormRaw">
+	  	  <input type="text" class="subcommInputText subcommInputTextRaw" />
+	  	</form>
+  	  </div><!-- subcommInputRaw -->
+    </div><!-- subcommTabRaw -->
+    <div class="subcommTab subcommTabChat" style="display: none;">
+      <div class="subcommHistory subcommHistoryChat"></div>
+      <div class="subcommInput subcommInputChat">
+        <form class="subcommInputForm subcommInputFormChat">
+          <input type="text" class="subcommInputText subcommInputTextChat" />
+        </form>
+      </div><!-- subcommInputChat -->
+    </div><!-- subcommTabChat -->
+    <div class="subcommTab subcommTabKills" style="display: none;">
+      <div class="subcommHistory subcommHistoryKills"></div>
+    </div><!-- subcommTabKills -->
+        <div class="subcommTab subcommTabPlayers" style="display: none;">
+      <div class="subcommHistory subcommHistoryPlayers"></div>
+    </div><!-- subcommTabPlayers -->
+    <div class="subcommTab subcommTabProject" style="display: none;">
+      <div class="subcommHistory subcommHistoryProject">
+      </div>
+    </div><!-- subcommTabProject -->
+    <div class="subcommTabMenu">
+        <div data-classSuffix="Host">host</div>
+        <div data-classSuffix="Raw">raw</div>
+        <div data-classSuffix="Chat">chat</div>
+        <div data-classSuffix="Kills">kills</div>
+        <div data-classSuffix="Players">players</div>
+        <div data-classSuffix="Project">project</div>
+    </div><!-- subcommTabMenu -->
+    <div class="subcommAd"></div>
+    <div class="subcommBanner"></div>
+  </div><!-- subcommContainer -->
+  <!-- Subcomm - End Container -->
+</body>
+</html>
+

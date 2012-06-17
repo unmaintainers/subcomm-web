@@ -1,0 +1,167 @@
+.subcommContainer {
+    width: 640px;
+    height: 520x;
+    margin: 0 auto;
+    border: 1px solid black;
+    font-family: Arial,Helvetica;
+    font-size: 8pt;
+}
+
+.subcommApplet {
+	width: 640px;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.subcommHeader {
+    width: 640px;
+    height: 20px;
+    border-bottom: 1px solid black;
+}
+
+.subcommHeader p {
+    width: 624px;
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 8px 0 8px;
+    font-weight: bold;
+    padding: 0;
+}
+
+.subcommTab {
+    width: 640px;
+    height: 480px;
+    border-bottom: 1px solid black;
+    padding: 0;
+    overflow: hidden;
+}
+
+.subcommHostControl {
+    width: 590px;
+    height: 178px;
+    margin: 150px auto;
+    border: 1px solid black;
+
+}
+
+.subcommHistory {
+    width: 640px;
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.subcommHistoryKills {
+    height: 481px;
+}
+
+.subcommHistoryProject {
+    height: 481px;
+}
+
+.subcommHistoryPlayers {
+    height: 481px;
+}
+
+.subcommHistory p {
+    width: 626px;
+    margin: 0 16px 0 8px;
+}
+
+.subcommInput {
+    width: 640px;
+    height: 29px;
+    border-top: 1px solid black;
+}
+
+.subcommInputText {
+    height: 29px;
+    width: 634px;
+    margin: 0;
+    border: 0;
+    padding: 0 3px 0 3px;
+}
+
+.subcommTabMenu {
+    width: 640px;
+    height: 20px;
+    border-bottom: 1px solid black;
+}
+
+.subcommTabMenu div {
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    text-align: center;
+    border-right: 1px solid black;
+    font-family: sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.subcommTabMenu div:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.subcommAd {
+	width: 640px;
+	height: 200px;
+	border-bottom: 1px solid black;
+}
+
+.subcommBanner {
+	width: 640px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.subcommForm input {
+	border: 1px black solid;
+	margin: 0;
+	padding: 0;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+}
+
+.subcommForm select {
+    border: 1px black solid;
+    height: 22px;
+    line-height: 22px;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.subcommTopicButton {
+	height: 40px;
+	line-height: 40px;
+	font-size: 18pt;
+	display: block;
+    border: 0;
+    margin: 0;
+    padding: 0 8px 0 8px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.subcommTopicButton:hover {
+    cursor: pointer;
+}
+
+.subcommFormVerticalField {
+	margin: 8px 8px;
+}
+
+.subcommForm label {
+	font-weight: bold;
+}
