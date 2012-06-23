@@ -12,19 +12,17 @@ SubcommUIMessageTimer.run = function() {
 			var session = subcommContainer.sessions[i];
 			var client = session.javaClient;
 			if (!client) {
-				client = subcommContainer.applet.getClient(session.javaClientId);
+				client = subcommContainer.applet.getClient(session.containerId);
 				if (!client) {
 					return;
 				}
 			}
 			
-			var messages = client.nextReceivedMessages();
-			if (!messages) {
-				return;
-			}
 			
-			for (var mi = 0, mn = messages.length; mi < mn; ++mi) {
-				$(this).triggerHandler('subcommMessage', subcommContainer, message)
+			var message = client.nextReceivedMessage();
+			while (message) {
+				$(this).triggerHandler('subcommMessage', subcommContainer, message);
+				message = client.nextReceivedMessage();
 			}
 		}
 	});

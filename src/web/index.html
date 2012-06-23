@@ -6,6 +6,7 @@
   <meta name="description" content="An HTML5 UI applet that connects to SubComm game servers using the subcomm library.">
   <meta name="author" content="Roy Laurie">
   <link rel="stylesheet" href="css/subcomm-ui-web.css"/>
+  <script src="http://www.java.com/js/deployJava.js"></script>
   <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="js/subcomm-ui-web/SubcommUI.js"></script>
   <script type="text/javascript" src="js/subcomm-ui-web/SubcommUIContainer.js"></script>
@@ -21,24 +22,24 @@
   <script type="text/javascript">
   var gSubcommConfig = {
       servers: [
-          {   name: 'SSTEST Test Server Alpha',
-              containerId: 'subcommContainerIndex',
-              hostname: '127.0.0.1',
+          {   containerId: 'subcommContainerIndex',
+        	  name: 'SSCE Hyperspace',
+              hostname: '208.122.59.226',
               port: 5005,
-          }
+              url: '',
+          },
+          {   containerId: 'subcommContainerIndex',
+              name: 'SSCE Hockey/Football Zone',
+              hostname: '208.122.59.226',
+              port: 7501,
+              url: 'zone.rshl.org',
+          },
       ]
   };
   </script>
   <script type="text/javascript" src="js/subcomm-ui-web.js"></script>
 </head>
 <body>
-    <!-- SubComm - Applet. Should only be included once per page. -->
-  <object type="application/x-java-applet" class="subcommApplet" id="subcommUIApplet">
-    <param name="name" value="Subcomm UI Applet"/>
-    <param name="archive" value="subcomm-ui-web-1.0-SNAPSHOT.jar"/>
-    <param name="code" value="com.roylaurie.SubcommUIApplet"/>
-    <param name="codebase" value="jar/"/>
-  </object>
   <!-- SubComm - Begin Container -->
   <div class="subcommContainer" id="subcommContainerIndex">
     <div class="subcommHeader"><p>SubComm</p></div>
@@ -110,6 +111,16 @@
     <div class="subcommAd"></div>
     <div class="subcommBanner"></div>
   </div><!-- subcommContainer -->
+  <script>
+  deployJava.runApplet(
+      {   code:'com.roylaurie.subcomm.ui.web.SubcommUIApplet',
+          width: 0,
+          height: 0
+      },
+	  { jnlp_href: 'java/subcomm-ui-web.jnlp' },
+      '1.6'
+  );  
+  </script>
   <!-- Subcomm - End Container -->
 </body>
 </html>

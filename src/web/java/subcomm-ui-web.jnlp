@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="" href="">
+    <information>
+        <title>Subcomm Web UI</title>
+        <vendor>Roy Laurie Software</vendor>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se" />
+        <jar href="../../target/subcomm-ui-web-1.0-SNAPSHOT.jar" main="false" />
+    </resources>
+    <applet-desc 
+         name="Subcomm Web UI"
+         main-class="com.roylaurie.subcomm.ui.web.SubcommUIApplet"
+         width="0"
+         height="0">
+     </applet-desc>
+     <update check="background"/>
+</jnlp>

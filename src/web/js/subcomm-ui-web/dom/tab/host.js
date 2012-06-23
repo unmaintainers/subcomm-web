@@ -2,16 +2,16 @@ $(document).ready(function() {
 	$('.subcommFormHostConnect').submit(function(event) {
 		event.stopPropagation();
 		event.preventDefault();
-
+		
+		var container = $(this).closest('.subcommContainer');
+		var subcommContainer = SubcommUIContainer.get($(container).attr('id'));
 		if (!subcommContainer.applet) {
 			return;
 		}
 		
-		var container = $(this).closest('.subcommContainer');
-		var subcommContainer = SubcommUIContainer.get($(container).attr('id'));
 		var session = new SubcommUISession();
 		session.hostname = $($(container).find('.subcommFormHostConnectHostname')[0]).val();
-		session.port = $($(container).find('.subcommFormHostConnectPort')[0]).val();
+		session.port = parseInt($($(container).find('.subcommFormHostConnectPort')[0]).val());
 		session.username = $($(container).find('.subcommFormHostConnectUsername')[0]).val();
 		session.password = $($(container).find('.subcommFormHostConnectPassword')[0]).val();
 		session.containerId = subcommContainer.id;

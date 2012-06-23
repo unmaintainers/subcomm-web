@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.roylaurie</groupId>
   <artifactId>subcomm-ui-web</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>subcomm-ui-web</name>
   <description>An HTML5 UI applet that connects to SubComm game servers using the subcomm library.</description>
@@ -47,39 +47,22 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5.1</version>
+        <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+        <descriptors>
+          <descriptor>assembly.xml</descriptor>
+        </descriptors>
         </configuration>
+        <executions>
+          <execution>
+            <id>tar.gz</id>
+  		    <phase>package</phase>
+  		    <goals>
+              <goal>single</goal>
+  		    </goals>
+          </execution>
+        </executions>
       </plugin>
-	  <plugin>
-	  <artifactId>maven-assembly-plugin</artifactId>
-	  <version>2.3</version>
-	  <configuration>
-	    <descriptorRefs>
-	      <descriptorRef>jar-with-dependencies</descriptorRef>
-	    </descriptorRefs>
-	    <archive>
-	      <index>true</index>
-	      <manifest>
-	        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-	      </manifest>
-	    </archive>
-	    <appendAssemblyId>false</appendAssemblyId>
-	  </configuration>
-	  <executions>
-	    <execution>
-	      <id>make-assembly</id>
-	      <phase>package</phase>
-	      <goals>
-	        <goal>single</goal>
-	      </goals>
-	    </execution>
-	  </executions>
-	  </plugin>
     </plugins>
   </build>
 </project>
