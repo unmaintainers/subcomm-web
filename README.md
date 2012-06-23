@@ -1,7 +1,7 @@
 subcomm-web
 =================
 
-An HTML5 application that uses the subcomm library to chat on a SubSpace game servers.
+An HTML5 application that allows uers to chat on SubSpace game servers.
 
 This project is available at:
 https://github.com/roylaurie/subcomm-web
