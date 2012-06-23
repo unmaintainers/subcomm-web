@@ -7,7 +7,7 @@
     <resources>
         <!-- Application Resources -->
         <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se" />
-        <jar href="../../target/subcomm-ui-web-1.0-SNAPSHOT.jar" main="false" />
+        <jar href="../../target/subcomm-web-1.0-SNAPSHOT.jar" main="false" />
     </resources>
     <applet-desc 
          name="Subcomm Web UI"

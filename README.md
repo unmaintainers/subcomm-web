@@ -1,10 +1,10 @@
-subcomm-ui-web
+subcomm-web
 =================
 
-An HTML5 UI applet that uses the subcomm library to chat on a SubSpace game server.
+An HTML5 application that uses the subcomm library to chat on a SubSpace game servers.
 
 This project is available at:
-https://github.com/roylaurie/subcomm-ui-web
+https://github.com/roylaurie/subcomm-web
 
 The project for the subcomm client library is available at:
 https://github.com/roylaurie/subcomm

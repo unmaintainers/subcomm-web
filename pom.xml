@@ -2,23 +2,23 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.roylaurie</groupId>
-  <artifactId>subcomm-ui-web</artifactId>
+  <artifactId>subcomm-web</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>subcomm-ui-web</name>
+  <name>subcomm-web</name>
   <description>An HTML5 UI applet that connects to SubComm game servers using the subcomm library.</description>
-  <url>https://github.com/roylaurie/subcomm-ui-web</url>
+  <url>https://github.com/roylaurie/subcomm-web</url>
   <licenses>
   	<license>
       <name>Modified BSD License, 3-Clause</name>
-      <url>https://github.com/roylaurie/subcomm-ui-web/blob/master/license.txt</url>
+      <url>https://github.com/roylaurie/subcomm-web/blob/master/license.txt</url>
       <distribution>repo</distribution>
   	</license>
   </licenses>
   <scm>
-  	<connection>scm:git:git@github.com:roylaurie/subcomm-ui-web.git</connection>
-  	<developerConnection>scm:git:git@github.com:roylaurie/subcomm-ui-web.git</developerConnection>
-  	<url>https://github.com/roylaurie/subcomm-ui-web</url>
+  	<connection>scm:git:git@github.com:roylaurie/subcomm-web.git</connection>
+  	<developerConnection>scm:git:git@github.com:roylaurie/subcomm-web.git</developerConnection>
+  	<url>https://github.com/roylaurie/subcomm-web</url>
   </scm>
   <developers>
   	<developer>
