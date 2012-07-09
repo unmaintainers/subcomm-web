@@ -49,7 +49,7 @@ in it's main-line:
 Requirements:
 * Follow the style standard that is apparent throughout the code-base.
 * New code should come with new unit-tests or unit-test fixes.
-* Read the project README fully and agree to donate your code under the subcomm (3bsd) license.
+* Read the project README fully and agree to donate your code under the SubComm (3bsd) license.
 
 Also, you are more than welcome to start your own project from existing code and do whatever
 you like with it - it's free software.
