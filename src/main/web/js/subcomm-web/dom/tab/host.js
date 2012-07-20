@@ -10,19 +10,19 @@ $(document).ready(function() {
 		}
 		
 		var session = new SubcommUISession();
-		session.hostname = $($(container).find('.subcommFormHostConnectHostname')[0]).val();
-		session.port = parseInt($($(container).find('.subcommFormHostConnectPort')[0]).val());
-		session.username = $($(container).find('.subcommFormHostConnectUsername')[0]).val();
-		session.password = $($(container).find('.subcommFormHostConnectPassword')[0]).val();
-		session.containerId = subcommContainer.id;
+		session.hostname = ''+$($(container).find('.subcommFormHostConnectHostname')[0]).val().trim();
+		session.port = parseInt($($(container).find('.subcommFormHostConnectPort')[0]).val().trim());
+		session.username = ''+$($(container).find('.subcommFormHostConnectUsername')[0]).val().trim();
+		session.password = ''+$($(container).find('.subcommFormHostConnectPassword')[0]).val().trim();
+		session.containerId = ''+subcommContainer.id;
 		subcommContainer.session = session;
 
 		subcommContainer.applet.connect(
-			session.containerId,
-			session.hostname,
+			''+session.containerId,
+			''+session.hostname,
 			session.port,
-			session.username,
-			session.password
+			''+session.username,
+			''+session.password
 		);
 	});
 	

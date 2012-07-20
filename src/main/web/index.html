@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Subcomm UI Applet</title>
+  <title>Subcomm Web</title>
   <meta name="description" content="An HTML5 application that allows users to chat on SubSpace game servers.">
   <meta name="author" content="Roy Laurie">
   <link rel="stylesheet" href="css/subcomm-web.css"/>
@@ -45,7 +45,7 @@
     <div class="subcommHeader"><p>SubComm</p></div>
     <div class="subcommTab subcommTabHost">
       <div class="subcommHostControl">
-          <form class="subcommForm subcommFormHostConnect">
+          <form class="subcommForm subcommFormHostConnect" enctype="text/plain" accept-charset="UTF-8">
             <div class="subcommFormVerticalField" style="float: left;">
               <label>Hostname</label>
               <input type="text" name="hostname" class="subcommFormHostConnectHostname" style="width: 240px"/>
@@ -113,7 +113,7 @@
   </div><!-- subcommContainer -->
   <script>
   deployJava.runApplet(
-      {   code:'com.roylaurie.subcomm.ui.web.SubcommUIApplet',
+      {   code:'com.roylaurie.subcomm.ui.web.client.applet.SubcommUIWebClientApplet',
           width: 0,
           height: 0
       },
