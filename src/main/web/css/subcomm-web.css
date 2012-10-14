@@ -121,6 +121,12 @@
 	line-height: 20px;
 }
 
+.subcommBanner p {
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+}
+
 .subcommForm input {
 	border: 1px black solid;
 	margin: 0;

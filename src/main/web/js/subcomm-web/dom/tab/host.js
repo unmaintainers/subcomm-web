@@ -17,7 +17,7 @@ $(document).ready(function() {
 		session.containerId = ''+subcommContainer.id;
 		subcommContainer.session = session;
 
-		subcommContainer.applet.connect(
+		session.uri = subcommContainer.applet.connect(
 			''+session.containerId,
 			''+session.hostname,
 			session.port,

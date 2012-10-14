@@ -67,5 +67,5 @@ SubcommUI.prototype.getConfig = function(key) {
 }
 
 SubcommUI.prototype.start = function() {
-	setTimeout(SubcommUIMessageTimer.run, 350);
+	setTimeout(SubcommUIMessageTimer.run, SubcommUIMessageTimer.RUN_INTERVAL_MS);
 }

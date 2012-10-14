@@ -2,9 +2,9 @@ var SubcommUIUtility = new function() {};
 
 SubcommUIUtility.makeTimestamp = function() {
 	var date = new Date(Date.now());
-	var ts = '<span style="color: gray;">['+ zeroFill(date.getHours(), 2)
-	+ ':' + zeroFill(date.getMinutes(), 2)
-	+ ':' + zeroFill(date.getSeconds(), 2) + ']</span> ';
+	var ts = '<span style="color: gray;">['+ SubcommUIUtility.zeroFill(date.getHours(), 2)
+	+ ':' + SubcommUIUtility.zeroFill(date.getMinutes(), 2)
+	+ ':' + SubcommUIUtility.zeroFill(date.getSeconds(), 2) + ']</span> ';
 	return ts;
 }
 

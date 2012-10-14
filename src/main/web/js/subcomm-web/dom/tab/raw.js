@@ -1,6 +1,8 @@
 $(document).ready(function() {
-	$('.subcommContainer').bind('subcommMessage', function(event, uiContainer, message) {
-		$(this).children('.subcommHistoryRaw').each(function(index, element) {
+	$('.subcommContainer').bind('subcommMessage', function(event, data) {
+		var container = data.container;
+		var message = data.message;
+		$('.subcommHistoryRaw').each(function(index, element) {
 			$(this).append('<p>' + message + '</p>');
 			$(this).scrollTop($(this)[0].scrollHeight);
 		});

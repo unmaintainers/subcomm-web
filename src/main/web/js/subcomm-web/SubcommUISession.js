@@ -15,9 +15,10 @@ SubcommUISession.prototype.getJavaClient = function() {
 	
 	var applet = SubcommUIContainer.get(this.containerId).applet;
 	if (applet === null) {
+		console.log('No applet');
 		return null;
 	}
 	
-	this._javaClient = applet.getClient(this.containerId);
+	this._javaClient = applet.getClient(this.uri);
 	return this._javaClient;
 }

@@ -1,8 +1,9 @@
 $(document).ready(function() {
-	$('.subcommContainer').bind('subcommMessage', function(event, container, message) {
+	$('.subcommContainer').bind('subcommMessage', function(event, data) {
 		$('.subcommHeader').each(function(index, element) {
 			$(this).empty();
-			$(this).append('<p>SubComm connected to ' + client.getHost() + ' : ' + client.getPort() + ' as ' + client.getUsername() + '.</p>');
+			var session = data.container.session;
+			$(this).append('<p>SubComm connected to ' + session.hostname + ' : ' + session.port + ' as ' + session.username + '.</p>');
 		});	
 	});
 	
