@@ -14,7 +14,7 @@ $(document).ready(function() {
 		var killer = matches[1];
 		var victim = matches[2];
 		var action = 'killed';
-		if (killer === '<self>') { // suicide
+		if (killer === '&lt;self&gt;') { // suicide
 			killer = victim;
 			action = 'committed suicide';
 			victim = '';
