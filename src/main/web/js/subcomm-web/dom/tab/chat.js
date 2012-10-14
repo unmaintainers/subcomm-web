@@ -36,14 +36,12 @@ $(document).ready(function() {
     		
     		var color;
     		switch (target) {
-    		case 'PUB':
-    			color = 'blue';
-    			break;
     		case 'FREQ':
-    			color = 'yellow';
-    			break;
-    		default:
     			color = 'orange';
+    			break;
+    		case 'PUB':
+    		default:
+    			color = 'blue';
     		}
     		
     		return '<p>' + timestamp + '<span style="color: ' + color + ';">&lt;' + origin + '&gt;</span> ' + content + '</p>';
