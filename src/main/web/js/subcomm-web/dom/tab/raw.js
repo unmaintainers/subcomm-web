@@ -18,7 +18,10 @@ $(document).ready(function() {
 		if (javaClient === null)
 			return;
 	
-		javaClient.sendRaw($(this).val().trim());
-		$(this).val('');
+		var input = $($(this).children('input')[0]);
+        var message = input.val().trim();
+		javaClient.send(message);
+		input.val('');
+		$('#'+subcommContainer.id).triggerHandler('subcommMessage', { container: subcommContainer, message: message });
 	});	
 });
