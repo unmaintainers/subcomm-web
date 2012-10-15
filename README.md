@@ -1,5 +1,5 @@
 subcomm-web
-==============================================================================================================
+================================================================================
 
 An HTML5 application that allows users to chat on SubSpace game servers.
 
@@ -17,20 +17,19 @@ http://www.subcomm.net
 
 contributors
 -------
-* Roy Laurie, Roy Laurie Software <roy.laurie@gmail.com>
+* Roy Laurie, Binary Cult <roy.laurie@gmail.com>
 
 shameless plug
 --------------
-Roy Laurie Software is an ongoing experiment in open-source and copy-free software
+Binary Cult is an ongoing experiment in open-source and copy-free software
 and software services as a business.
 
-_Projects_
+**Projects**:
+
 * Arkown - A scriptable game-server management tool for quick tasks. Query and command:
     Source Engine (HL2,CS:S,TF2,..), COD7 (BO).
-* Quid Pro Pwn: Mortal Kombat - A portable guide to Mortal Kombat. Moves, Special Moves,
-    Fatalities, Combos, Twitter Feed.
 
-http://www.roylaurie.com
+http://www.binarycult.com
 
 contributing
 ------------
@@ -39,7 +38,7 @@ in it's main-line:
 
 0. Fork the project on GitHub <https://github.com/roylaurie>.
 1. Review the code-base.
-2. Introduce yourself and your idea on the email-group <roylauriesoftware@googlegroups.com>.
+2. Introduce yourself and your idea on the email-group <binarycult@googlegroups.com>.
 3. Make your changes.
 4. Announce when you're ready for review on the email-group.
 5. The Process: Review, Request, Fix, Review, Accept; repeat if necessary.
@@ -47,6 +46,7 @@ in it's main-line:
 7. Your code will be eventually merged into main-line and your name listed as an author.
 
 Requirements:
+
 * Follow the style standard that is apparent throughout the code-base.
 * New code should come with new unit-tests or unit-test fixes.
 * Read the project README fully and agree to donate your code under the SubComm (3bsd) license.
@@ -57,7 +57,7 @@ you like with it - it's free software.
 license (3bsd)
 --------------
 
-Copyright © 2012 Roy Laurie Software. All Rights Reserved.
+Copyright © 2012 Binary Cult. All Rights Reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -72,8 +72,8 @@ modification, are permitted provided that the following conditions are met:
 3. The name of the author may not be used to endorse or promote products
    derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY ROY LAURIE SOFTWARE "AS IS" AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+THIS SOFTWARE IS PROVIDED BY ROY LAURIE SOFTWARE "AS IS" AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
 EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
 EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT

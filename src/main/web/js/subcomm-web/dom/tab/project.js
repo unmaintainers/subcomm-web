@@ -5,9 +5,11 @@ $(document).ready(function() {
 	jQuery.ajax({
 		url: "../../../README.md",
 		dataType: 'text',
-	}).done(function(data) {
-		$('.subcommHistoryProject').each(function(index, element) {
-			$(this).html('<p><pre>' + data + '</pre></p>');
+	}).done(function(content) {
+		content = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+		content = new Markdown.Converter().makeHtml(content);
+		$('.subcommHistoryProjectPanel').each(function(index, element) {
+			$(this).html(content);
 		});
 	});
 });
