@@ -31,9 +31,9 @@ $(document).ready(function() {
 			return;
 		}
 		
-		$('.subcommHistoryKills').each(function(index, element) {
+		$('.subcommHistoryPanelKills').each(function(index, element) {
 			$(this).append(killHtml);
-			$(this).scrollTop($(this)[0].scrollHeight);
+			$(this).parent().scrollTop($(this).parent()[0].scrollHeight);
 		});
 	});
 	

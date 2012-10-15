@@ -7,7 +7,6 @@
     font-size: 8pt;
 }
 
-
 .subcommApplet {
 	width: 640px;
 	height: 0;
@@ -38,14 +37,6 @@
     overflow: hidden;
 }
 
-.subcommHostControl {
-    width: 590px;
-    height: 178px;
-    margin: 150px auto;
-    border: 1px solid black;
-
-}
-
 .subcommHistory {
     width: 640px;
     height: 450px;
@@ -53,8 +44,30 @@
     overflow-y: scroll;
 }
 
+.subcommHistoryPanel {
+    width: 615px;
+    margin: 0 16px 0 8px;
+}
+
+.subcommHistoryPanel {
+    width: 615px;
+    margin: 5px 5px 5px 5px;
+}
+
+.subcommHistoryPanel p {
+	margin: 0;
+	padding: 0;
+}
+
 .subcommHistoryKills {
     height: 481px;
+}
+
+.subcommHostControl {
+    width: 590px;
+    height: 178px;
+    margin: 150px auto;
+    border: 1px solid black;
 }
 
 .subcommHistoryProject {
@@ -65,9 +78,8 @@
     height: 481px;
 }
 
-.subcommHistoryProjectPanel {
-    width: 615px;
-    margin: 0 16px 0 8px;
+.subcommHistoryPanelProject p {
+	margin: 0 0 5px 0;
 }
 
 .subcommInput {

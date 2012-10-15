@@ -65,9 +65,9 @@ $(document).ready(function() {
 			return;
 		}
 		
-		$('.subcommHistoryChat').each(function(index, element) {
+		$('.subcommHistoryPanelChat').each(function(index, element) {
 			$(this).append(messageHtml);
-			$(this).scrollTop($(this)[0].scrollHeight);
+			$(this).parent().scrollTop($(this).parent()[0].scrollHeight);
 		});
 	});
 	

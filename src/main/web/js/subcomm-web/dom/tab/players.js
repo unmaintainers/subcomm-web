@@ -3,7 +3,7 @@ $(document).ready(function() {
 		function entering(player) {
 			var html = '<p>' + player + '</p>';
 			player = player.toLowerCase();
-			$('.subcommHistoryPlayers').each(function(panelIndex, panel) {
+			$('.subcommHistoryPanelPlayers').each(function(panelIndex, panel) {
 				var done = false;
 				$(this).children('p').each(function(index, element) { // attempt to insert before this <p>
 					if (!done && player < $(this).html().toLowerCase()) {
@@ -21,11 +21,11 @@ $(document).ready(function() {
 		}
 		
 		function leaving(player) {
-			$('.subcommHistoryPlayers p').each(function(index, element) {
+			$('.subcommHistoryPanelPlayers p').each(function(index, element) {
 				if ($(this).html() === player)
 					$(this).remove();
 
-				$(this).parent().scrollTop($(this)[0].scrollHeight);
+				$(this).parent().parent().scrollTop($(this).parent().parent()[0].scrollHeight);
 			});
 		}
 		

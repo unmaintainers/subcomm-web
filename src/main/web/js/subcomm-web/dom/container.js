@@ -15,7 +15,9 @@ $(document).ready(function() {
 		$(container).children(tabClass).each(function(index, element) {
 			$(this).show();
 			$('.subcommHistory').each(function(index, element) {
-				$(this).scrollTop($(this)[0].scrollHeight);
+				if ($(this).attr('data-autoscroll') !== 'false') {
+					$(this).scrollTop($(this)[0].scrollHeight);
+				}
 			});
 		});
 	});

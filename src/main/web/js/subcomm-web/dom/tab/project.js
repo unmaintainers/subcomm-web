@@ -8,7 +8,7 @@ $(document).ready(function() {
 	}).done(function(content) {
 		content = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 		content = new Markdown.Converter().makeHtml(content);
-		$('.subcommHistoryProjectPanel').each(function(index, element) {
+		$('.subcommHistoryPanelProject').each(function(index, element) {
 			$(this).html(content);
 		});
 	});

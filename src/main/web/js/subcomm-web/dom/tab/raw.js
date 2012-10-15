@@ -2,9 +2,9 @@ $(document).ready(function() {
 	$('.subcommContainer').bind('subcommMessage', function(event, data) {
 		var container = data.container;
 		var message = data.message;
-		$('.subcommHistoryRaw').each(function(index, element) {
+		$('.subcommHistoryPanelRaw').each(function(index, element) {
 			$(this).append('<p>' + message + '</p>');
-			$(this).scrollTop($(this)[0].scrollHeight);
+			$(this).parent().scrollTop($(this).parent()[0].scrollHeight);
 		});
 	});
 	
