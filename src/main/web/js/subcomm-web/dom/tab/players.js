@@ -62,4 +62,8 @@ $(document).ready(function() {
 		
 		event.stopImmediatePropagation();
 	});
+	
+	$('.subcommContainer').bind('subcommConnect', function(event, data) {
+		$('.subcommHistoryPanelPlayers').empty();
+	});
 });

@@ -6,6 +6,8 @@ function SubcommUISession() {
     this.containerId = null;
     this.uri = null
     this._javaClient = null;
+    /* @var boolean TRUE if a subcommConnect message has been sent out. FALSE otherwise. */
+    this.introduced = false;
 }
 
 SubcommUISession.prototype.getJavaClient = function() {

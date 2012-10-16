@@ -184,3 +184,11 @@
 .subcommForm label {
 	font-weight: bold;
 }
+
+.subcommButtonHostSubmit {
+	margin: 8px 240px;
+}
+
+.subcommButtonHostSubmitConnected {
+    margin: 8px 220px;
+}

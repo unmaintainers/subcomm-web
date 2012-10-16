@@ -3,27 +3,42 @@ $(document).ready(function() {
 		event.stopPropagation();
 		event.preventDefault();
 		
-		var container = $(this).closest('.subcommContainer');
-		var subcommContainer = SubcommUIContainer.get($(container).attr('id'));
-		if (!subcommContainer.applet) {
+		var containerEl = $(this).closest('.subcommContainer');
+		var container = SubcommUIContainer.get($(containerEl).attr('id'));
+		if (!container.applet) {
 			return;
 		}
 		
-		var session = new SubcommUISession();
-		session.hostname = ''+$($(container).find('.subcommFormHostConnectHostname')[0]).val().trim();
-		session.port = parseInt($($(container).find('.subcommFormHostConnectPort')[0]).val().trim());
-		session.username = ''+$($(container).find('.subcommFormHostConnectUsername')[0]).val().trim();
-		session.password = ''+$($(container).find('.subcommFormHostConnectPassword')[0]).val().trim();
-		session.containerId = ''+subcommContainer.id;
-		subcommContainer.session = session;
-
-		session.uri = subcommContainer.applet.connect(
-			''+session.containerId,
-			''+session.hostname,
-			session.port,
-			''+session.username,
-			''+session.password
-		);
+		var submit = $($(containerEl).find('.subcommButtonHostSubmit')[0]);
+		if (submit.html() === 'connect') {
+			var session = new SubcommUISession();
+			session.hostname = ''+$($(containerEl).find('.subcommFormHostConnectHostname')[0]).val().trim();
+			session.port = parseInt($($(containerEl).find('.subcommFormHostConnectPort')[0]).val().trim());
+			session.username = ''+$($(containerEl).find('.subcommFormHostConnectUsername')[0]).val().trim();
+			session.password = ''+$($(containerEl).find('.subcommFormHostConnectPassword')[0]).val().trim();
+			session.containerId = ''+container.id;
+			container.session = session;
+	
+			session.uri = container.applet.connect(
+				''+session.containerId,
+				''+session.hostname,
+				session.port,
+				''+session.username,
+				''+session.password
+			);
+			
+			submit.html('disconnect');
+		} else { // disconnect
+			if (container.session) {
+				container.applet.disconnect(container.session.uri);
+				container.session = null;
+			}
+			
+			submit.html('connect');
+			$(containerEl).triggerHandler('subcommDisconnect', { container: container });
+		}
+		
+		submit.toggleClass('subcommButtonHostSubmitConnected');
 	});
 	
 	$('.subcommFormHostConnectServer').change(function(event) {

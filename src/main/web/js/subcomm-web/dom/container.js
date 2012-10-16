@@ -21,4 +21,8 @@ $(document).ready(function() {
 			});
 		});
 	});
+	
+	$('.subcommContainer').bind('subcommDisconnect', function(event, data) {
+		$('.subcommHeader').html('<p>SubComm</p>');
+	});
 });

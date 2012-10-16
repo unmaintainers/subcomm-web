@@ -24,4 +24,8 @@ $(document).ready(function() {
 		input.val('');
 		$('#'+subcommContainer.id).triggerHandler('subcommMessage', { container: subcommContainer, message: message });
 	});	
+	
+	$('.subcommContainer').bind('subcommConnect', function(event, data) {
+		$('.subcommHistoryPanelRaw').empty();
+	});
 });

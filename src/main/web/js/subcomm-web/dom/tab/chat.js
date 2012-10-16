@@ -106,5 +106,9 @@ $(document).ready(function() {
 		input.val('');
 		var composed = 'MSG:PUB:' + subcommContainer.session.username + ':' + message;
 		$('#'+subcommContainer.id).triggerHandler('subcommMessage', { container: subcommContainer, message: composed });
-	});	
+	});
+	
+	$('.subcommContainer').bind('subcommConnect', function(event, data) {
+		$('.subcommHistoryPanelChat').empty();
+	});
 });

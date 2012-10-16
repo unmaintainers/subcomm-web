@@ -11,4 +11,8 @@ $(document).ready(function() {
 	$('.subcommContainer').bind('subcommMessage', function(event, data) {
 		$(this).triggerHandler('subcommBannerMessage', data);
 	});
+	
+	$('.subcommContainer').bind('subcommDisconnect', function(event, data) {
+		$('.subcommBanner').empty();
+	});
 });
