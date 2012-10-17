@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jnlp spec="1.0+" codebase="" href="">
     <information>
-        <title>Subcomm Web UI</title>
-        <vendor>Roy Laurie Software</vendor>
+        <title>SubComm Web UI</title>
+        <vendor>Binary Cult</vendor>
     </information>
     <resources>
         <!-- Application Resources -->

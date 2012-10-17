@@ -8,14 +8,12 @@ $(document).ready(function() {
 				$(this).children('p').each(function(index, element) { // attempt to insert before this <p>
 					if (!done && player < $(this).html().toLowerCase()) {
 						$(this).before(html);
-						$(panel).scrollTop($(panel)[0].scrollHeight);
 						done = true;
 					}
 				});
 				
 				if (!done) { // append
 					$(this).append(html);
-					$(this).scrollTop($(this)[0].scrollHeight);
 				}
 			});
 		}
@@ -24,8 +22,6 @@ $(document).ready(function() {
 			$('.subcommHistoryPanelPlayers p').each(function(index, element) {
 				if ($(this).html() === player)
 					$(this).remove();
-
-				$(this).parent().parent().scrollTop($(this).parent().parent()[0].scrollHeight);
 			});
 		}
 		
