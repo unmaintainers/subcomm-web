@@ -17,11 +17,11 @@ http://www.subcomm.net
 
 contributors
 -------
-* Roy Laurie, Binary Cult <roy.laurie@gmail.com>
+* Roy Laurie, binarycult <roy.laurie@gmail.com>
 
 shameless plug
 --------------
-Binary Cult is an ongoing experiment in open-source and copy-free software
+binarycult is an ongoing experiment in open-source and copy-free software
 and software services as a business.
 
 **Projects**:
@@ -57,7 +57,7 @@ you like with it - it's free software.
 license (3bsd)
 --------------
 
-Copyright © 2012 Binary Cult. All Rights Reserved.
+Copyright © 2012 binarycult. All Rights Reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
