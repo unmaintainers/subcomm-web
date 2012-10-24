@@ -2,18 +2,18 @@
 <jnlp spec="1.0+" codebase="" href="">
     <information>
         <title>SubComm Web UI</title>
-        <vendor>Binary Cult</vendor>
+        <vendor>binarycult</vendor>
     </information>
     <resources>
         <!-- Application Resources -->
         <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se" />
-        <jar href="file:///home/rlaurie/project/roylauriesoftware/subcomm-web-client-applet/target/subcomm-web-client-applet-1.0-SNAPSHOT.jar" main="false" />
+        <jar href="java/subcomm-web-client-applet-1.0-SNAPSHOT.jar" main="false" />
     </resources>
     <applet-desc 
          name="Subcomm Web UI"
-         main-class="com.roylaurie.subcomm.ui.web.SubcommUIApplet"
-         width="0"
-         height="0">
+         main-class="com.roylaurie.subcomm.ui.web.client.applet.SubcommUIWebClientApplet"
+         width="1"
+         height="1">
      </applet-desc>
      <update check="background"/>
 </jnlp>
