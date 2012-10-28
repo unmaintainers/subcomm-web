@@ -1,8 +1,13 @@
 if (gSubcommConfig === undefined)
 	var gSubcommConfig = {};
 
+$(document).ajaxError(function(e, xhr, settings, exception) {
+    console.log('error in: ' + settings.url + ', exception: ' + exception);
+});
+
 function SubcommUI() {
 	this.servers = this.getConfig('servers');
+	this.plugins = this.getConfig('plugins');
 };
 
 /**
@@ -10,11 +15,16 @@ function SubcommUI() {
  * 
  *  var gSubcommConfig = {
  *      servers: [
- *      	{   name: 'SSUSCK HyperBola Stair Wears',
+ *      	{   name: 'SSSS SubSpace Zone',
  *              containerId: 'subcommContainerIndex',
  *    			hostname: '127.0.0.1',
  *    			port: 5005
  *    		}
+ *      ],
+ *      plugins: [
+ *      	{	token: 'subcomm-shopkeep',
+ *      		containerIds: [ 'subcommContainerIndex' ]
+ *      	}
  *      ]
  *  }
  */
@@ -24,7 +34,15 @@ SubcommUI.DEFAULT_CONFIG = {
 			containerId: null,
 			name: null,
 			hostname: null,
-			port: null
+			port: null,
+			tags: [],
+		}
+	},
+	plugins: {
+		_schema: {
+			token: null,
+			containerIds: [],
+			tags: [],
 		}
 	}
 };
@@ -64,8 +82,19 @@ SubcommUI.getConfigFor = function(key, config, defaultConfig) {
 		
 SubcommUI.prototype.getConfig = function(key) {
 	return SubcommUI.getConfigFor(key, gSubcommConfig, SubcommUI.DEFAULT_CONFIG);
-}
+};
 
 SubcommUI.prototype.start = function() {
 	setTimeout(SubcommUIMessageTimer.run, SubcommUIMessageTimer.RUN_INTERVAL_MS);
-}
+	// load plugins
+	for (var i = 0; i < this.plugins.length; ++i) {
+		var pluginConfig = this.plugins[i];
+		var plugin = new SubcommUIPlugin(pluginConfig.token, pluginConfig.containerIds);
+		SubcommUIPlugin.add(plugin);
+		var resources = new SubcommUIResourceSet()
+		.addJs(SubcommUIUtility.Url.baseUrl + '/plugin/' + pluginConfig.token + '/' + pluginConfig.token + '.js');
+		SubcommUIResourceLoader.get().loadResources(resources);
+	}
+};
+
+

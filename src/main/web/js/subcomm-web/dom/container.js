@@ -7,12 +7,11 @@ $(document).ready(function() {
 		});	
 	});
 	
-	$('.subcommTabMenu div').click(function() {
+	$('.subcommTabMenu').on('click', 'div', function() {
 		var container = $(this).closest('.subcommContainer')[0];
 		$(container).children('.subcommTab').hide();
-		var suffix = $(this).attr('data-classSuffix');
-		var tabClass = '.subcommTab' + suffix;
-		$(container).children(tabClass).each(function(index, element) {
+		var tabSelector = '.' + $(this).attr('data-classname');
+		$(container).children(tabSelector).each(function(index, element) {
 			$(this).show();
 			$('.subcommHistory').each(function(index, element) {
 				if ($(this).attr('data-autoscroll') !== 'false') {

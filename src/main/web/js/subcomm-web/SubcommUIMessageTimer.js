@@ -1,4 +1,4 @@
-function SubcommUIMessageTimer() {};
+var SubcommUIMessageTimer = function() {};
 
 /* @var integer milliseconds between each call to run() */
 SubcommUIMessageTimer.RUN_INTERVAL_MS = 350;
@@ -19,7 +19,7 @@ SubcommUIMessageTimer.run = function() {
 	}
 	
 	$('.subcommContainer').each(function (index, element) {
-		var container = SubcommUIContainer.get($(this).attr('id'))
+		var container = SubcommUIContainer.get($(this).attr('id'));
 		if (!container || !container.session) {
 			return;
 		}
@@ -43,4 +43,4 @@ SubcommUIMessageTimer.run = function() {
 	});
 	
 	setTimeout(SubcommUIMessageTimer.run, SubcommUIMessageTimer.RUN_INTERVAL_MS);
-}
+};

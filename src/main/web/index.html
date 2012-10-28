@@ -11,11 +11,15 @@
   <script type="text/javascript" src="js/pagedown/Markdown.Converter.js"></script>
   <script type="text/javascript" src="js/pagedown/Markdown.Editor.js"></script>
   <script type="text/javascript" src="js/pagedown/Markdown.Sanitizer.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/SubcommUIUtility.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/SubcommUIResourceSet.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/SubcommUIResourceLoader.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUI.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIContainer.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUISession.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIMessageTimer.js"></script>
-  <script type="text/javascript" src="js/subcomm-web/SubcommUIUtility.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/SubcommUIPluginResourceSet.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/SubcommUIPlugin.js"></script>
   <script type="text/javascript" src="js/subcomm-web/dom/container.js"></script>
   <script type="text/javascript" src="js/subcomm-web/dom/tab/host.js"></script>
   <script type="text/javascript" src="js/subcomm-web/dom/tab/raw.js"></script>
@@ -32,13 +36,22 @@
               hostname: '208.122.59.226',
               port: 5005,
               url: '',
+              tags: [
+                  'subcomm-shopkeep'
+              ]
           },
           {   containerId: 'subcommContainerIndex',
               name: 'SSCE Hockey/Football Zone',
               hostname: '208.122.59.226',
               port: 7501,
               url: 'zone.rshl.org',
+              tags: []
           },
+      ],
+      plugins: [
+          {   token: 'subcomm-shopkeep',
+        	  containerIds: ['subcommContainerIndex']
+          }
       ]
   };
   </script>
@@ -48,7 +61,7 @@
   <!-- SubComm - Begin Container -->
   <div class="subcommContainer" id="subcommContainerIndex">
     <div class="subcommHeader"><p>SubComm</p></div>
-    <div class="subcommTab subcommTabHost">
+    <div class="subcommTab subcommTabHost" style="display: block;">
       <div class="subcommHostControl">
           <form class="subcommForm subcommFormHostConnect" enctype="text/plain" accept-charset="UTF-8">
             <div class="subcommFormVerticalField" style="float: left;">
@@ -79,7 +92,7 @@
           </form>
       </div>
     </div><!-- subcommTabHost -->
-    <div class="subcommTab subcommTabRaw" style="display: none;">
+    <div class="subcommTab subcommTabRaw">
   	  <div class="subcommHistory subcommHistoryRaw">
   	     <div class="subcommHistoryPanel subcommHistoryPanelRaw"></div>
   	  </div><!-- subcommHistoryRaw -->
@@ -89,7 +102,7 @@
 	  	</form>
   	  </div><!-- subcommInputRaw -->
     </div><!-- subcommTabRaw -->
-    <div class="subcommTab subcommTabChat" style="display: none;">
+    <div class="subcommTab subcommTabChat">
       <div class="subcommHistory subcommHistoryChat">
         <div class="subcommHistoryPanel subcommHistoryPanelChat"></div>
       </div><!-- subcommHistoryChat -->
@@ -99,28 +112,28 @@
         </form>
       </div><!-- subcommInputChat -->
     </div><!-- subcommTabChat -->
-    <div class="subcommTab subcommTabKills" style="display: none;">
+    <div class="subcommTab subcommTabKills">
       <div class="subcommHistory subcommHistoryKills">
         <div class="subcommHistoryPanel subcommHistoryPanelKills"></div>
       </div><!-- subcommHistoryKills -->
     </div><!-- subcommTabKills -->
-        <div class="subcommTab subcommTabPlayers" style="display: none;">
+        <div class="subcommTab subcommTabPlayers">
       <div class="subcommHistory subcommHistoryPlayers">
         <div class="subcommHistoryPanel subcommHistoryPanelPlayers"></div>
       </div>
     </div><!-- subcommTabPlayers -->
-    <div class="subcommTab subcommTabProject" style="display: none;">
+    <div class="subcommTab subcommTabProject">
       <div class="subcommHistory subcommHistoryProject" data-autoscroll="false">
         <div class="subcommHistoryPanel subcommHistoryPanelProject"></div>
       </div>
     </div><!-- subcommTabProject -->
     <div class="subcommTabMenu">
-        <div data-classSuffix="Host">host</div>
-        <div data-classSuffix="Raw">raw</div>
-        <div data-classSuffix="Chat">chat</div>
-        <div data-classSuffix="Kills">kills</div>
-        <div data-classSuffix="Players">players</div>
-        <div data-classSuffix="Project">project</div>
+        <div data-classname="subcommTabHost">host</div>
+        <div data-classname="subcommTabRaw">raw</div>
+        <div data-classname="subcommTabChat">chat</div>
+        <div data-classname="subcommTabKills">kills</div>
+        <div data-classname="subcommTabPlayers">players</div>
+        <div data-classname="subcommTabProject">project</div>
     </div><!-- subcommTabMenu -->
     <div class="subcommAd"></div>
     <div class="subcommBanner"></div>
