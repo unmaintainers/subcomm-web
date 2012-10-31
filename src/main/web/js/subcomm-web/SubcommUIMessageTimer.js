@@ -25,20 +25,20 @@ SubcommUIMessageTimer.run = function() {
 		}
 
 		var session = container.session;
-		var client = session.getJavaClient();
-		if (!client) { // not connected yet
-		    return;
+		var message = ISubcommUI.get().nextReceivedMessage(session.uri);
+		if (!message) {
+			return;
 		}
+
 		if (!session.introduced) { // this is the first access to this client from this timer
 			session.introduced = true;
 			$(this).triggerHandler('subcommConnect', { container: container }); // alert ui
 		}
 		
-		var message = client.nextReceivedMessage(); // doesn't block. null if nothing
 		while (message) {
 			message = sanitize(''+message);; // encode html
 			$(this).triggerHandler('subcommMessage', { container: container, message: message }); // message event
-			message = client.nextReceivedMessage();
+			message = ISubcommUI.get().nextReceivedMessage(session.uri);
 		}
 	});
 	

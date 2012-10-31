@@ -19,7 +19,17 @@ $(document).ready(function() {
 			session.containerId = ''+container.id;
 			container.session = session;
 	
-			session.uri = container.applet.connect(
+			if (session.hostname === 'demo') {
+				ISubcommUI.setCurrent(ISubcommUIDemo.NAME);
+				if (!session.username) {
+					session.username = 'guest';
+					$($(containerEl).find('.subcommFormHostConnectUsername')[0]).val(session.username);
+				}
+			} else {
+				ISubcommUI.setCurrent(ISubcommUIApplet.NAME);
+			}
+			
+			session.uri = ISubcommUI.get().connect(
 				''+session.containerId,
 				''+session.hostname,
 				session.port,
@@ -30,7 +40,7 @@ $(document).ready(function() {
 			submit.html('disconnect');
 		} else { // disconnect
 			if (container.session) {
-				container.applet.disconnect(container.session.uri);
+				ISubcommUI.get().disconnect(container.session.uri);
 				container.session = null;
 			}
 			

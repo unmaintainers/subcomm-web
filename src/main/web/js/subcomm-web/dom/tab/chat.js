@@ -93,19 +93,14 @@ $(document).ready(function() {
 		event.stopPropagation();
 		event.preventDefault();
 
-		var container = $($(this).closest('.subcommContainer')[0]);
-		var subcommContainer = SubcommUIContainer.get(container.attr('id'));
-		var javaClient = subcommContainer.getJavaClient();
-		if (javaClient === null) {
-			return;
-		}
-
+		var containerEl = $($(this).closest('.subcommContainer')[0]);
+		var container = SubcommUIContainer.get(containerEl.attr('id'));
 		var input = $($(this).children('input')[0]);
         var message = input.val().trim();
-		javaClient.chatPublic(message);
+		ISubcommUI.get().chatPublic(container.session.uri, message);
 		input.val('');
-		var composed = 'MSG:PUB:' + subcommContainer.session.username + ':' + message;
-		$('#'+subcommContainer.id).triggerHandler('subcommMessage', { container: subcommContainer, message: composed });
+		var composed = 'MSG:PUB:' + container.session.username + ':' + message;
+		$('#'+container.id).triggerHandler('subcommMessage', { container: container, message: composed });
 	});
 	
 	$('.subcommContainer').bind('subcommConnect', function(event, data) {

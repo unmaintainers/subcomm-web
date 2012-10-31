@@ -29,6 +29,7 @@ $(document).ready(function() {
 		var message = data.message;
 		var matches = message.match(/^(?:ENTERING|PLAYER):(.+?):.+?:.+?$/);
 		if (matches) {
+			leaving(matches[1]);
 			return entering(matches[1]);
 		}
 		matches = message.match(/^LEAVING:(.+?)$/);

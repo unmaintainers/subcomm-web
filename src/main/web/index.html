@@ -14,12 +14,15 @@
   <script type="text/javascript" src="js/subcomm-web/SubcommUIUtility.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIResourceSet.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIResourceLoader.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/ISubcommUI.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUI.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIContainer.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUISession.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIMessageTimer.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIPluginResourceSet.js"></script>
   <script type="text/javascript" src="js/subcomm-web/SubcommUIPlugin.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/isubcommui/ISubcommUIApplet.js"></script>
+  <script type="text/javascript" src="js/subcomm-web/isubcommui/ISubcommUIDemo.js"></script>
   <script type="text/javascript" src="js/subcomm-web/dom/container.js"></script>
   <script type="text/javascript" src="js/subcomm-web/dom/tab/host.js"></script>
   <script type="text/javascript" src="js/subcomm-web/dom/tab/raw.js"></script>
@@ -31,6 +34,13 @@
   <script type="text/javascript">
   var gSubcommConfig = {
       servers: [
+          {     containerId: 'subcommContainerIndex',
+                name: 'DEMO (connectionless)',
+                hostname: 'demo',
+                port: 1,
+                url: 'demo:subcomm/subcomm-demo-01.txt',
+                tags: []
+          },
           {   containerId: 'subcommContainerIndex',
         	  name: 'SSCE Hyperspace',
               hostname: '208.122.59.226',
@@ -140,13 +150,13 @@
   </div><!-- subcommContainer -->
   <script>
   deployJava.runApplet(
-      {   code:'com.roylaurie.subcomm.ui.web.client.applet.SubcommUIWebClientApplet',
-          width: 0,
-          height: 0
-      },
-	  { jnlp_href: 'java/subcomm-web.jnlp' },
-      '1.6'
-  );  
+	      {   code:'com.roylaurie.subcomm.ui.web.client.applet.SubcommUIWebClientApplet',
+	          width: 0,
+	          height: 0
+	      },
+	      { jnlp_href: 'java/subcomm-web.jnlp' },
+	      '1.6'
+	  );  
   </script>
   <!-- Subcomm - End Container -->
 </body>

@@ -84,8 +84,13 @@ SubcommUI.prototype.getConfig = function(key) {
 	return SubcommUI.getConfigFor(key, gSubcommConfig, SubcommUI.DEFAULT_CONFIG);
 };
 
-SubcommUI.prototype.start = function() {
+SubcommUI.prototype.start = function() {	
 	setTimeout(SubcommUIMessageTimer.run, SubcommUIMessageTimer.RUN_INTERVAL_MS);
+	
+	ISubcommUI.add(ISubcommUIApplet.NAME, new ISubcommUIApplet());
+	ISubcommUI.add(ISubcommUIDemo.NAME, new ISubcommUIDemo());
+	ISubcommUI.setCurrent(ISubcommUIApplet.NAME);
+	
 	// load plugins
 	for (var i = 0; i < this.plugins.length; ++i) {
 		var pluginConfig = this.plugins[i];

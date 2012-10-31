@@ -5,22 +5,6 @@ function SubcommUISession() {
     this.password = null;
     this.containerId = null;
     this.uri = null;
-    this._javaClient = null;
     /* @var boolean TRUE if a subcommConnect message has been sent out. FALSE otherwise. */
     this.introduced = false;
 }
-
-SubcommUISession.prototype.getJavaClient = function() {
-	if (this._javaClient !== null) {
-		return this._javaClient;
-	}
-	
-	var applet = SubcommUIContainer.get(this.containerId).applet;
-	if (applet === null) {
-		console.log('No applet');
-		return null;
-	}
-	
-	this._javaClient = applet.getClient(this.uri);
-	return this._javaClient;
-};
