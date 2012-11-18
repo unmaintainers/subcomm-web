@@ -25,11 +25,13 @@ $(document).ready(function() {
 					containerId: data.containerId,
 					table: table,
 					scraper: scraper
-				})
+				});
 			});
 			$('.subcommContainer').bind('subcommMessage', function(event, data) {
 				scraper.notifyMessage(data.message);
 			});
+			
+			$('#' + data.containerId).triggerHandler('shopkeepPluginReady', data);
 		});
 	});
 	

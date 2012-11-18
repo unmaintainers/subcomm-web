@@ -3,6 +3,8 @@ var ScrapedTable = function() {
 	this.rowTitles = [];
 	/* @var [ [row1 val1, row1 val2,..],.. ] */
 	this.data = [];
+	this.started = false;
+	this.complete = false;
 };
 
 ScrapedTable.prototype.get = function(row, column) {

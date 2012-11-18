@@ -8,6 +8,8 @@ var TableScraper = function(containerId, notifyMethod) {
 	this._table = new ScrapedTable();
 	this._strategy = new TableScraper.TitleStrategy();
 	this._notifyMethod = ( typeof(notifyMethod) !== 'undefined' ? notifyMethod : null );
+	this._nextNotifyMethod = null;
+	this._nextNotifyMethods = [];
 	TableScraper.INSTANCES[containerId] = this;
 };
 
@@ -30,8 +32,24 @@ TableScraper.prototype.notifyMessage = function(message) {
 		if (this._notifyMethod) {
 			this._notifyMethod(this._table, this);
 		}
+		if (this._nextNotifyMethod) {
+			this._nextNotifyMethod(this._table, this);
+		}
 		
+		this._nextNotifyMethod = this._nextNotifyMethods.shift();
 		this._table = new ScrapedTable();
+	}
+};
+
+/**
+ * Essentially "calls dibs" on the next table that *starts*. The notify method is called once completed.
+ * @param function(ScrapedTable table, TableScraper scraper) notifyMethod
+ */
+TableScraper.prototype.subscribeNext = function(notifyMethod) {
+	if (this._table.started) {
+		this._nextNotifyMethods.push(notifyMethod);
+	} else {
+		this._nextNotifyMethod = notifyMethod;
 	}
 };
 
@@ -64,9 +82,7 @@ TableScraper.Strategy.prototype.isHr = function(message) {
 
 
 
-TableScraper.TitleStrategy = function() {
-	this.started = false;
-};
+TableScraper.TitleStrategy = function() { /* no state */ };
 
 TableScraper.TitleStrategy.TITLE_REGEX = /^\|\s+(.[^\|]*)\s+\|$/;
 
@@ -74,9 +90,9 @@ TableScraper.TitleStrategy.prototype = new TableScraper.Strategy();
 TableScraper.TitleStrategy.prototype.constructor = TableScraper.TitleStrategy;
 
 TableScraper.TitleStrategy.prototype.parseMessage = function(table, message) {
-	if (!this.started) {
+	if (!table.started) {
 		if (this.isHr(message)) { // the first +----+ starts the table
-			this.started = true;
+			table.started = true;
 		}
 		
 		return this;
