@@ -12,8 +12,25 @@ $(document).ready(function() {
 
 		var resources = new SubcommUIPluginResourceSet(data.pluginToken)
 		.addTab('ship', 'shopkeepTabShip', data.containerId, 0)
-		.addTab('shop', 'shopkeepTabShop', data.containerId, 1);
-		SubcommUIResourceLoader.get().loadResources(resources);
+		.addTab('shop', 'shopkeepTabShop', data.containerId, 1)
+		.addJs('table-scraper/ScrapedTable.js')
+		.addJs('table-scraper/TableScraper.js');
+
+		SubcommUIResourceLoader.get().loadResources(resources, function(resources) {
+			/**
+			 * Creates an event 'shopkeepTableScraper' that reports back tables it has scraped.
+			 */
+			var scraper = new TableScraper(data.containerId, function(table, scraper) {
+				$('.subcommContainer').triggerHandler('shopkeepTableScraper', {
+					containerId: data.containerId,
+					table: table,
+					scraper: scraper
+				})
+			});
+			$('.subcommContainer').bind('subcommMessage', function(event, data) {
+				scraper.notifyMessage(data.message);
+			});
+		});
 	});
 	
 	/**

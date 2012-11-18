@@ -32,7 +32,7 @@ SubcommUIResourceLoader.prototype._setUrlLoaded = function(url, loaded) {
 };
 
 SubcommUIResourceLoader.prototype.loadResources = function(resources, onBatchLoadedMethod) {
-	this._loadResource(resources, 0, ( typeof(onBatchLoadedMethod) !== 'undefined' ? onBatchLoadMethod : null ));
+	this._loadResource(resources, 0, ( typeof(onBatchLoadedMethod) !== 'undefined' ? onBatchLoadedMethod : null ));
 };
 
 SubcommUIResourceLoader.prototype._loadResource = function(resources, index, onBatchLoadedMethod) {

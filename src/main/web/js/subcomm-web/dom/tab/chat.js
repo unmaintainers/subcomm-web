@@ -14,7 +14,7 @@ $(document).ready(function() {
     	limitContent = ( typeof(limitContent) !== 'undefined' ? limitContent : false );
 		var timestamp = ( showTimestamp ? SubcommUIUtility.makeTimestamp() : '' );
 		
-    	var matches = message.match(/^MSG:ARENA:(.+)$/);
+    	var matches = message.match(/^MSG:(?:ARENA|SYSOP):(.+)$/);
 		if (matches) {
 			return arenaHtml();
 		}
@@ -60,6 +60,7 @@ $(document).ready(function() {
 	$('.subcommContainer').bind('subcommMessage', function(event, data) {
 		var container = data.container;
 		var message = data.message;
+
 		var messageHtml = createMessageHtml(container, message, true);
 		if (!messageHtml) {
 			return;
