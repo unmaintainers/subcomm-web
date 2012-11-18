@@ -25,7 +25,7 @@ ISubcommUIDemo.prototype._loadDemoData = function() {
 	this._demoDataRequested = true;
 	var self = this;
     var set = new SubcommUIResourceSet();
-    set.addHtml('demo/subcomm/subcomm-demo-02.txt', function(data) {
+    set.addHtml('demo/subcomm/subcomm-demo-01.txt', function(data) { //TODO: get from ui or config
     	self._demoData = data.split('\n');
     });
     SubcommUIResourceLoader.get().loadResources(set);
@@ -84,6 +84,9 @@ ISubcommUIDemo.prototype.nextReceivedMessage = function(clientUri) {
 	}
 
 	var message = this._demoData[this._index++];
+	if (message.startsWith('#')) { // ignore comment lines
+		message = this._demoData[this._index++];
+	}
 	if (!message.match(/^(INARENA:|PLAYER:|SHIPFREQCHANGE:)/)) { // fast forward through meta
 		this._nextMessageTime = now + ISubcommUIDemo.MESSAGE_INTERVAL_MS;
 	}

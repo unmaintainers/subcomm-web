@@ -1,0 +1,42 @@
+# Debug ?buy guns and ?buy ships
+INARENA:0:1337
+MSG:ARENA:WELCOME
+MSG:PUB:binarycult:?buy guns
+MSG:ARENA:+----------------------------------+
+MSG:ARENA:| Guns                             |
+MSG:ARENA:+------------------+--------+------+-+-------+----------+-----+------+----------------------------------+
+MSG:ARENA:| Item Name        | Buy    | Sell   | Exp   | Ships    | Max | Ammo | Item Description                 |
+MSG:ARENA:+------------------+--------+--------+-------+----------+-----+------+----------------------------------+
+MSG:ARENA:| Pea Shooter      | 300    | 149    | 0     | 12345678 | 1   | 0    | Simple beginner gun              |
+MSG:SYSOP:| Gamma Ray        | 4.5k   | 4.3k   | 20    | 12       | 1   | 0    | Basic ammoless gun upgrade       |
+MSG:SYSOP:| Pulse Laser      | 5k     | 4.8k   | 50    | 12345678 | 1   | 0    | Basic gun upgrade                |
+MSG:SYSOP:| Disruptor        | 10k    | 9.2k   | 500   | 1 3 5    | 1   | 0    | High energy, low efficiency      |
+MSG:SYSOP:| Gauss Cannon     | 11k    | 10.1k  | 1000  | 12345678 | 1   | 0    | Basic multifire gun              |
+MSG:SYSOP:| Arcfire Array    | 12k    | 10.9k  | 1500  | 123456   | 1   | 0    | Energy intensive weaponry        |
+MSG:SYSOP:| Shredder         | 15k    | 13.6k  | 2000  | 1 3 5    | 1   | 0    | Low efficiency, tremendous power |
+MSG:SYSOP:| Beam Array       | 16k    | 14.5k  | 2500  | 12345678 | 1   | 0    | High efficiency, low energy      |
+MSG:SYSOP:| Plasma Cannon    | 20k    | 18k    | 3000  | 1 3 5    | 1   | 0    | High energy, bounce, spread      |
+MSG:SYSOP:| Phaser           | 22k    | 19.8k  | 3500  | 12345678 | 1   | 0    | High efficiency and power gun    |
+MSG:SYSOP:| Polaron Turret   | 23.5k  | 23.5k  | 3800  |   34567  | 1   | 0    | Basic gun turret                 |
+MSG:SYSOP:| Shrap Booster    | 25k    | 22.5k  | 4000  |  2 4 6   | 1   | 0    | Improves bomb shrapnel           |
+MSG:SYSOP:| Aux. Launcher    | 27.3k  | 23.2k  | 4200  |  2 4 6   | 1   | 0    | Reduces bomb delay when charged  |
+MSG:SYSOP:| Sharppinger      | 55.4k  | 21.3k  | 6540  | 1234567  | 1   | 0    | An ancient classic               |
+MSG:SYSOP:| Mass Driver      | 56.3k  | 21.5k  | 6630  | 1 34567  | 1   | 0    | Signature multi L1 gun           |
+MSG:SYSOP:| GigajouleRailgun | 60.9k  | 22.7k  | 7080  |   3 5 7  | 1   | 0    | Extremely high energy gun        |
+MSG:SYSOP:| Positron Gun     | 61.8k  | 22.9k  | 7170  | 1234567  | 1   | 0    | Signature L3 Bounce gun          |
+MSG:SYSOP:| Trap Laser       | 62.7k  | 23.1k  | 7260  | 1 34567  | 1   | 0    | Wide laser array                 |
+MSG:SYSOP:| Proton Beam      | 64.2k  | 64.2k  | 7410  | 1 3 5 7  | 1   | 0    | Signature, very high damage      |
+MSG:ARENA:+------------------+--------+--------+-------+----------+-----+------+----------------------------------+
+MSG:PUB:binarycult:?buy ships
+MSG:ARENA:+-----------+-----------+------------+--------+----------------------------------------------------+
+MSG:ARENA:| Ship Name | Buy Price | Sell Price | Exp    | Ship Description                                   |
+MSG:ARENA:+-----------+-----------+------------+--------+----------------------------------------------------+
+MSG:ARENA:| Warbird   | $1000     | $100       | 0      | A basic, light gunner. Comes with a Starter Kit.   |
+MSG:ARENA:| Javelin   | $1000     | $100       | 0      | A basic, light bomber. Comes with a Starter Kit.   |
+MSG:SYSOP:| Spider    | $5000     | $3000      | 1010   | A heavy ship suited for gunning.                   |
+MSG:SYSOP:| Leviathan | $5000     | $3000      | 1010   | A heavy ship suited for bombing.                   |
+MSG:SYSOP:| Terrier   | $9000     | $6000      | 1990   | A medium sized gun ship.                           |
+MSG:SYSOP:| Weasel    | $9500     | $6500      | 1990   | A medium sized bomb ship. Uses EMP bombs.          |
+MSG:SYSOP:| Lancaster | $10000    | $4000      | 200    | The largest ship, other ships can attach to it.    |
+MSG:SYSOP:| Shark     | $20000    | $10000     | 9000   | A compact ship made for elite fighters.            |
+MSG:ARENA:+-----------+-----------+------------+--------+----------------------------------------------------+
