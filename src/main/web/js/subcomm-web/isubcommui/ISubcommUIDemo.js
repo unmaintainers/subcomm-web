@@ -84,7 +84,11 @@ ISubcommUIDemo.prototype.nextReceivedMessage = function(clientUri) {
 	}
 
 	var message = this._demoData[this._index++];
-	if (message.startsWith('#')) { // ignore comment lines
+	if (typeof(message) === 'undefined' || !message) {
+		message = '';
+	}
+	
+	if (message.charAt(0) === '#') { // ignore comment lines
 		message = this._demoData[this._index++];
 	}
 	if (!message.match(/^(INARENA:|PLAYER:|SHIPFREQCHANGE:)/)) { // fast forward through meta
