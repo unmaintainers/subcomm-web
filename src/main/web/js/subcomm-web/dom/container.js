@@ -9,6 +9,8 @@ $(document).ready(function() {
 	
 	$('.subcommTabMenu').on('click', 'div', function() {
 		var container = $(this).closest('.subcommContainer')[0];
+		$('.subcommTabMenu div').removeClass('subcommTabCurrent');
+		$(this).addClass('subcommTabCurrent');
 		$(container).children('.subcommTab').hide();
 		var tabSelector = '.' + $(this).attr('data-classname');
 		$(container).children(tabSelector).each(function(index, element) {

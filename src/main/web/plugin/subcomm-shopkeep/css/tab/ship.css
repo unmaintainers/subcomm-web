@@ -1,0 +1,49 @@
+.shopkeepHistoryPanelShip {
+    display: none;	
+}
+
+.shopkeepShipInventoryPanel {
+	width: 385px;
+	border: 1px solid black;
+    float: left;
+    min-height: 435px;
+}
+
+.shopkeepShipProfilePanel {
+	width: 215px;
+	border: 1px solid black;
+	margin: 0 0 0 10px;
+    float: left;
+    text-align: right;
+    min-height: 200px;
+}
+
+.shopkeepShipProfilePanel img.shopkeepShipProfileImage {
+	width: 100px;
+	height: 100px;
+}
+
+.shopkeepShipTabBar {
+	border-top: 1px solid black;
+
+}
+
+.shopkeepShipTabBar div:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.shopkeepShipTab {
+	float: left;
+	border: 1px solid black;
+	width: 60px;
+	margin: 6px 0px 0px 16px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.shopkeepShipTabCurrent {
+	background-color: black;
+    color: white;
+}

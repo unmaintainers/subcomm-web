@@ -84,6 +84,7 @@ SubcommUIResourceLoader.prototype._loadHtml = function(htmlResource, onLoadedMet
 	// we don't cache html loads as they are not global
 	jQuery.ajax({
         url: url,
+        cache: false,
         success: function(data) {
         	if (htmlResource.ajaxCallback) {
         		htmlResource.ajaxCallback(data);
@@ -105,7 +106,8 @@ SubcommUIResourceLoader.prototype._loadCss = function(cssResource, onLoadedMetho
 		return;
 	}
 	
-	$('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', url) );
+	var urlNoCache = url + '?nocache=' + (Math.floor(Math.random()*1111));
+	$('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', urlNoCache) );
 	if (onLoadedMethod) {
 		onLoadedMethod(url);
 	}

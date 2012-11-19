@@ -123,6 +123,11 @@
     cursor: pointer;
 }
 
+.subcommTabMenu div.subcommTabCurrent {
+    background-color: black;
+    color: white;
+}
+
 .subcommAd {
 	width: 640px;
 	height: 200px;
@@ -192,4 +197,29 @@
 
 .subcommButtonHostSubmitConnected {
     margin: 8px 220px;
+}
+
+.subcommPanelTitle {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	width: 100%
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th {
+	text-align: left;
+}
+
+table tr.shaded {
+	background-color: lightgrey;
+}
+
+table.horizontal th {
+    text-align: right;
 }
