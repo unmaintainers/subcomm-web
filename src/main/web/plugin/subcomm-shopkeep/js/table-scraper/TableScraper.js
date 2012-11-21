@@ -132,7 +132,7 @@ TableScraper.HeaderStrategy.prototype.parseMessage = function(table, message) {
 		throw new SubcommUIException("Cells not found during header table scrape.");
 	}
 
-	for (var i = 1; i < cells.length; ++i) {
+	for (var i = 0; i < cells.length; ++i) {
 		var cell = (''+cells[i]).trim();
 		table.rowTitles.push(cell);
 	}

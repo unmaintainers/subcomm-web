@@ -1,7 +1,7 @@
-# Debug ?buy guns and ?buy ships
+# Shopkeep Debug: ?shipstatus
 INARENA:0:1337
 MSG:ARENA:WELCOME
-MSG:PUB:binarycult:?buy guns
+#INPUT:/^SEND:PUB:\?shipstatus -v 1$/
 MSG:ARENA:+----------------------------------+
 MSG:ARENA:| Guns                             |
 MSG:ARENA:+------------------+--------+------+-+-------+----------+-----+------+----------------------------------+
@@ -27,7 +27,7 @@ MSG:SYSOP:| Positron Gun     | 61.8k  | 22.9k  | 7170  | 1234567  | 1   | 0    |
 MSG:SYSOP:| Trap Laser       | 62.7k  | 23.1k  | 7260  | 1 34567  | 1   | 0    | Wide laser array                 |
 MSG:SYSOP:| Proton Beam      | 64.2k  | 64.2k  | 7410  | 1 3 5 7  | 1   | 0    | Signature, very high damage      |
 MSG:ARENA:+------------------+--------+--------+-------+----------+-----+------+----------------------------------+
-MSG:PUB:binarycult:?buy ships
+#INPUT:/^SEND:PUB:\?shipstatus -v 2$/
 MSG:ARENA:+-----------+-----------+------------+--------+----------------------------------------------------+
 MSG:ARENA:| Ship Name | Buy Price | Sell Price | Exp    | Ship Description                                   |
 MSG:ARENA:+-----------+-----------+------------+--------+----------------------------------------------------+
@@ -40,3 +40,4 @@ MSG:SYSOP:| Weasel    | $9500     | $6500      | 1990   | A medium sized bomb sh
 MSG:SYSOP:| Lancaster | $10000    | $4000      | 200    | The largest ship, other ships can attach to it.    |
 MSG:SYSOP:| Shark     | $20000    | $10000     | 9000   | A compact ship made for elite fighters.            |
 MSG:ARENA:+-----------+-----------+------------+--------+----------------------------------------------------+
+#LOOP
