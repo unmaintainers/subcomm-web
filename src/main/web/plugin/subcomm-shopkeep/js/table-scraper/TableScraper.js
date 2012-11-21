@@ -37,6 +37,10 @@ TableScraper.prototype.notifyMessage = function(message) {
 		}
 		
 		this._nextNotifyMethod = this._nextNotifyMethods.shift();
+		if (typeof(this._nextNotifyMethod) === 'undefined') {
+			this._nextNotifyMethod = null;
+		}
+		
 		this._table = new ScrapedTable();
 	}
 };
@@ -46,7 +50,7 @@ TableScraper.prototype.notifyMessage = function(message) {
  * @param function(ScrapedTable table, TableScraper scraper) notifyMethod
  */
 TableScraper.prototype.subscribeNext = function(notifyMethod) {
-	if (this._table.started) {
+	if (this._table.started || this._nextNotifyMethod !== null) {
 		this._nextNotifyMethods.push(notifyMethod);
 	} else {
 		this._nextNotifyMethod = notifyMethod;
@@ -93,6 +97,13 @@ TableScraper.TitleStrategy.prototype.parseMessage = function(table, message) {
 	if (!table.started) {
 		if (this.isHr(message)) { // the first +----+ starts the table
 			table.started = true;
+		} else {
+			var row = this.getRow(message);
+			if (row) {
+				table.started = true;
+				var strat = new TableScraper.HeaderStrategy();
+				return strat.parseMessage(table, message);
+			}
 		}
 		
 		return this;

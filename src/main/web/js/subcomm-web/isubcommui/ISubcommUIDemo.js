@@ -33,7 +33,7 @@ ISubcommUIDemo.prototype._loadDemoData = function() {
 	this._demoDataRequested = true;
 	var self = this;
     var set = new SubcommUIResourceSet();
-    set.addHtml('demo/subcomm/subcomm-demo-02.txt', function(data) { //TODO: get from ui or config
+    set.addHtml('demo/subcomm/subcomm-demo-01.txt', function(data) { //TODO: get from ui or config
     	self._demoData = data.split('\n');
     });
     SubcommUIResourceLoader.get().loadResources(set);
@@ -103,13 +103,17 @@ ISubcommUIDemo.prototype.nextReceivedMessage = function(clientUri) {
 			this._messagePauseRegex = new RegExp(regex[1]);
 			return null;
 		} else if (message.match(/^#LOOP/)) { // #LOOP - causes the playback to loop (resets index)
-			this._index = -1;
+			this._index = 0; // incremented below
 		}
 		
 		message = this._demoData[this._index++];
+		if (typeof(message) === 'undefined' || !message) {
+			return null;
+		}
 	}
 	
-	if (!message.match(/^(#:|INARENA:|PLAYER:|SHIPFREQCHANGE:)/)) { // fast forward through meta
+	if (!message.match(/^(#:|INARENA:|PLAYER:|SHIPFREQCHANGE:)/)
+			&& !message.match(/^MSG:ARENA:(?:(?:\+\-)|(?:\| ))/)) { // fast forward through meta
 		this._nextMessageTime = now + ISubcommUIDemo.MESSAGE_INTERVAL_MS;
 	}
 

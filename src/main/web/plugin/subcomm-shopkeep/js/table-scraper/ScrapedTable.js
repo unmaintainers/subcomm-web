@@ -15,3 +15,7 @@ ScrapedTable.prototype.getRow = function(row) {
 	return this.data[row];
 };
 
+ScrapedTable.prototype.numRows = function() {
+	return this.data.length;
+};
+

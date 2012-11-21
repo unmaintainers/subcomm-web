@@ -26,6 +26,8 @@ $(document).ready(function() {
 					table: table,
 					scraper: scraper
 				});
+				
+				console.log(table);
 			});
 			$('.subcommContainer').bind('subcommMessage', function(event, data) {
 				scraper.notifyMessage(data.message);
