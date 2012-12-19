@@ -1,8 +1,14 @@
 var SubcommUIContainer = function(containerId) {
+	if (typeof(containerId) !== 'string') {
+		console.log(containerId);
+		throw new SubcommUIException('Invalid containerId:' + containerId);
+	}
+	
 	this.id = containerId;
 	this.session = null;
 	this.applet = document.applets[0];
-	this._nextSessionId = 1; 
+	this.selector = '#' + this.id;
+	this._nextSessionId = 1;
 };
 
 SubcommUIContainer._registrations = {};
@@ -20,7 +26,7 @@ SubcommUIContainer.get = function(containerId) {
 
 SubcommUIContainer.getByDiv = function(containerDiv) {
 	var containerEl = $($(containerDiv).closest('.subcommContainer')[0]);
-	return SubcommUIContainer.get(SubcommUIContainer.get(containerEl.attr('id')));
+	return SubcommUIContainer.get(containerEl.attr('id'));
 };
 
 SubcommUIContainer.prototype.nextSessionId = function() {

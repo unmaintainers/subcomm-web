@@ -35,3 +35,34 @@ SubcommUIUtility.zeroFill = function(number, width) {
 	
 	return number + ""; // always return a string
 };
+
+SubcommUIUtility.Ui = function() {};
+
+SubcommUIUtility.Ui.toggleSpinner = function(div, spinning) {
+	div = $(div);
+	var spinningDivs = div.find('.subcommSpinner');
+	if (spinning) {
+		if (spinningDivs.length !== 0) { // already spinning
+			return;
+		}
+		
+		var spinning = $('<div class="subcommSpinner"></div>');
+		$(div).append(spinning);
+		var spinner = new Spinner({
+			length: 10,
+			width: 2,
+			radius: 8,
+		}).spin();
+		spinning.append(spinner.el);
+		// position the div afterwards, which gives us the computed width/height
+		var pos = div.offset();
+		var top =  Math.floor(pos.top + (div.innerHeight() / 2) - (spinning.outerHeight() / 2) ) + 8;
+		var left = Math.floor(pos.left + (div.innerWidth() / 2) - (spinning.outerWidth() / 2) ) + 8;
+		spinning.offset({left: left, top: top});
+	} else {
+		if (spinningDivs.length !== 0) { // clear spinning divs, not spinning any longer
+			$(spinningDivs).remove();
+		}
+	}
+};
+

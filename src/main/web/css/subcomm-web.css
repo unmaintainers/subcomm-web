@@ -207,6 +207,12 @@
 	width: 100%
 }
 
+.subcommSpinner {
+	width: 14px;
+	height: 14px;
+    position: absolute;
+}
+
 table {
 	width: 100%;
 	border-collapse: collapse;

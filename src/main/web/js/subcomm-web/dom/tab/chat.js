@@ -14,7 +14,7 @@ $(document).ready(function() {
 	};
 	
 	ChatTab.prototype = {
-		toggleConnected: function(connected) {
+		toggleConnected: function(container, connected) {
 			if (this._connected || !connected) { // only react to new connections
 				this._connected = connected;
 				return;
@@ -22,7 +22,6 @@ $(document).ready(function() {
 			
 			this._connected = connected;
 			// change to chat tab as soon as the first message matches
-			var container = SubcommUIContainer.getByDiv($(this));
 			container.changeTab('subcommTabChat');
 		}
 	};
@@ -44,13 +43,13 @@ $(document).ready(function() {
 		
     	var matches = message.match(/^MSG:(?:ARENA|SYSOP):(.+)$/);
 		if (matches) {
-			ChatTab.get().toggleConnected(true);
+			ChatTab.get().toggleConnected(container, true);
 			return arenaHtml();
 		}
 		
     	matches = message.match(/^MSG:(.+?):(.+?):(.+)$/);
     	if (matches) {
-    		ChatTab.get().toggleConnected(true);
+    		ChatTab.get().toggleConnected(container, true);
     		return pubHtml();
     	}
     	

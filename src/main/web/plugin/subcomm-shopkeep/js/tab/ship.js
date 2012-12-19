@@ -1,10 +1,7 @@
 $('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {
 	function refresh(containerId, shipName, shipId, inventoryTable, shipTable) {
 		// clear inventory and ship profile's head and body
-		$('#'+containerId+' .shopkeepHistoryPanelShip'+shipName+' .shopkeepShipInventoryPanel table thead').empty();
-		$('#'+containerId+' .shopkeepHistoryPanelShip'+shipName+' .shopkeepShipInventoryPanel table tbody').empty();
-		$('#'+containerId+' .shopkeepHistoryPanelShip'+shipName+' .shopkeepShipProfilePanel table thead').empty();
-		$('#'+containerId+' .shopkeepHistoryPanelShip'+shipName+' .shopkeepShipProfilePanel table tbody').empty();
+		$('#'+containerId+' .shopkeepHistoryPanelShip'+shipName+' .shopkeepShipInventoryPanel table *').empty();
 		
 		// process inventory head
 		var html = '<tr>';
@@ -64,19 +61,34 @@ $('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {
 		// show appropriate ship panel, hide the rest
 		$('.shopkeepHistoryPanelShip').hide();
 		$('.shopkeepHistoryPanelShip' + shipName).show();
-		// get the container
-		var containerEl = $($(this).closest('.subcommContainer')[0]);
-		var container = SubcommUIContainer.get(containerEl.attr('id'));
+		
+		var container = SubcommUIContainer.getByDiv($(this));
+		
+		// show waiting icon
+		var panelSelector = container.selector + ' .shopkeepHistoryPanelShip'+shipName;
+		var panels = [
+            $(panelSelector + ' .shopkeepShipInventoryPanel')[0],
+            $(panelSelector + ' .shopkeepShipProfilePanel')[0]
+        ];
+
+		for (var i = 0; i < panels.length; ++i) {
+			SubcommUIUtility.Ui.toggleSpinner(panels[i], true);
+		}
 		
 		// request a data refresh
 		var inventoryTable = null;
-		TableScraper.INSTANCES[pData.containerId].subscribeNext(function(table, scraper) {
+		TableScraper.INSTANCES[container.id].subscribeNext(function(table, scraper) {
 			inventoryTable = table;
 		});
 		var shipTable = null;
-		TableScraper.INSTANCES[pData.containerId].subscribeNext(function(table, scraper) {
+		TableScraper.INSTANCES[container.id].subscribeNext(function(table, scraper) {
 			shipTable = table;
-			refresh(pData.containerId, shipName, shipId, inventoryTable, shipTable);
+			
+			for (var i = 0; i < panels.length; ++i) {
+				SubcommUIUtility.Ui.toggleSpinner(panels[i], false);
+			}
+			
+			refresh(container.id, shipName, shipId, inventoryTable, shipTable);
 		});
 		
 		// launch the command
