@@ -1,4 +1,32 @@
 $(document).ready(function() {
+	var ChatTab = function() {
+		this._connected = false;
+	};
+	
+	ChatTab._instance = null;
+	
+	ChatTab.get = function() {
+		if (ChatTab._instance === null) {
+			ChatTab._instance = new ChatTab();
+		}
+		
+		return ChatTab._instance;
+	};
+	
+	ChatTab.prototype = {
+		toggleConnected: function(connected) {
+			if (this._connected || !connected) { // only react to new connections
+				this._connected = connected;
+				return;
+			}
+			
+			this._connected = connected;
+			// change to chat tab as soon as the first message matches
+			var container = SubcommUIContainer.getByDiv($(this));
+			container.changeTab('subcommTabChat');
+		}
+	};
+	
 	/**
 	 * Creates the <p> tag and content for showing a message.
 	 * @param container
@@ -16,11 +44,13 @@ $(document).ready(function() {
 		
     	var matches = message.match(/^MSG:(?:ARENA|SYSOP):(.+)$/);
 		if (matches) {
+			ChatTab.get().toggleConnected(true);
 			return arenaHtml();
 		}
 		
     	matches = message.match(/^MSG:(.+?):(.+?):(.+)$/);
     	if (matches) {
+    		ChatTab.get().toggleConnected(true);
     		return pubHtml();
     	}
     	
@@ -94,8 +124,7 @@ $(document).ready(function() {
 		event.stopPropagation();
 		event.preventDefault();
 
-		var containerEl = $($(this).closest('.subcommContainer')[0]);
-		var container = SubcommUIContainer.get(containerEl.attr('id'));
+		var container = SubcommUIContainer.getByDiv($(this));
 		var input = $($(this).children('input')[0]);
         var message = input.val().trim();
 		ISubcommUI.get().chatPublic(container.session.uri, message);
@@ -105,6 +134,11 @@ $(document).ready(function() {
 	});
 	
 	$('.subcommContainer').bind('subcommConnect', function(event, data) {
+		// clear chat history from last connection
 		$('.subcommHistoryPanelChat').empty();
+	});
+	
+	$('.subcommContainer').bind('subcommDisconnect', function(event, data) {
+		ChatTab.get().toggleConnected(false);
 	});
 });

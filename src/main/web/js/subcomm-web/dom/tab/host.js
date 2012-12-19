@@ -70,16 +70,14 @@ $(document).ready(function() {
 		var hostname = matches[0];
 		var port = matches[1];
 		hostnameInput.val(hostname);
-		portInput.val(port)
+		portInput.val(port);
 	});
 
 	$('.subcommFormHostConnectServer').each(function(index, element) {
-		var container = $($(this).closest('.subcommContainer'));
-		var containerId = container.attr('id');
 		var servers = SubcommUI.get().getConfig('servers');
 		for (var i = 0, n = servers.length; i < n; ++i) {
 			var server = servers[i];
-			$(this).append('<option value="' + server.hostname + ':' + server.port + '">' + server.name + '</option>')
+			$(this).append('<option value="' + server.hostname + ':' + server.port + '">' + server.name + '</option>');
 		}
 	});
 });

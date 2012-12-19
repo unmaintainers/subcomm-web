@@ -25,5 +25,8 @@ $(document).ready(function() {
 	
 	$('.subcommContainer').bind('subcommConnect', function(event, data) {
 		$('.subcommHistoryPanelRaw').empty();
+		// change to chat tab as soon as we connect
+		var container = SubcommUIContainer.getByDiv($(this));
+		container.changeTab('subcommTabRaw');
 	});
 });
