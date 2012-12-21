@@ -14,7 +14,8 @@ $(document).ready(function() {
 		.addTab('ship', 'shopkeepTabShip', data.containerId, 0)
 		.addTab('shop', 'shopkeepTabShop', data.containerId, 1)
 		.addJs('table-scraper/ScrapedTable.js')
-		.addJs('table-scraper/TableScraper.js');
+		.addJs('table-scraper/TableScraper.js')
+		.addJs('table-scraper/ScrapedTableUI.js');
 
 		SubcommUIResourceLoader.get().loadResources(resources, function(resources) {
 			/**
