@@ -8,13 +8,15 @@ $(document).ready(function() {
 	});
 	
 	$('.subcommTabMenu').on('click', 'div', function() {
-		var container = $(this).closest('.subcommContainer')[0];
+		var container = SubcommUIContainer.getByDiv($(this));
+		var containerEl = $(container.selector);
 		$('.subcommTabMenu div').removeClass('subcommTabCurrent');
 		$(this).addClass('subcommTabCurrent');
-		$(container).children('.subcommTab').hide();
-		var tabSelector = '.' + $(this).attr('data-classname');
-		$(container).children(tabSelector).each(function(index, element) {
+		containerEl.children('.subcommTab').hide();
+		var tabName = $(this).attr('data-classname');
+		containerEl.children('.' + tabName).each(function(index, element) {
 			$(this).show();
+			$(containerEl).triggerHandler('subcommTabFocus', { container: container, tabName: tabName }); // message event
 			$('.subcommHistory').each(function(index, element) {
 				if ($(this).attr('data-autoscroll') !== 'false') {
 					$(this).scrollTop($(this)[0].scrollHeight);

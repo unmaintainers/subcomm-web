@@ -7,15 +7,30 @@ var ScrapedTable = function() {
 	this.complete = false;
 };
 
-ScrapedTable.prototype.get = function(row, column) {
-	return this.data[row][column];
+ScrapedTable.prototype.get = function(rowIndex, columnIndex) {
+	return this.data[rowIndex][columnIndex];
 };
 
-ScrapedTable.prototype.getRow = function(row) {
-	return this.data[row];
+ScrapedTable.prototype.getRow = function(rowIndex) {
+	return this.data[rowIndex];
 };
 
 ScrapedTable.prototype.numRows = function() {
 	return this.data.length;
+};
+
+ScrapedTable.prototype.getColumn = function(columnIndex) {
+	var results = [];
+	for (var i = 0, n = this.numRows(); i < n; ++i) {
+		results.push(this.get(i, columnIndex));
+	}
+	
+	return results;
+};
+
+ScrapedTable.prototype.appendTable = function(table) {
+	for (var i = 0, n = table.numRows(); i < n; ++i) {
+		this.data.push(table.getRow(i));
+	}
 };
 
