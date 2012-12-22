@@ -1,4 +1,4 @@
-$('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {
+$('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {	
 	$('.shopkeepShipTab').on('click', function(event, data) {
 		var shipName = $(this).text();
 		var shipId =  $(this).attr('data-shipid');

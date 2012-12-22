@@ -34,3 +34,9 @@ ScrapedTable.prototype.appendTable = function(table) {
 	}
 };
 
+ScrapedTable.prototype.insertColumn = function(atColumnIndex, title, value) {
+	this.rowTitles.splice(atColumnIndex, 0, title);
+	for (var r = 0, rn = this.numRows(); r < rn; ++r) {
+		this.data[r].splice(atColumnIndex, 0, value);
+	}
+};

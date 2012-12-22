@@ -1,8 +1,13 @@
 $('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {
+	var STATE = {
+		loaded: false
+	};
+	
 	function createCategoryCallback(state) {
 		var callback = function(table, scraper) {
 			var category = state.categories[state.categoryIndex];
-
+			table.insertColumn(0, "Type", category);
+			
 			if (state.itemsTable === null) {
 				state.itemsTable = table;
 			} else {
@@ -14,6 +19,7 @@ $('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {
 			tableUi.updateTable(state.panel);
 
 			if (++state.categoryIndex === state.categories.length) { // if there are more categories
+				STATE.loaded = true;
 				SubcommUIUtility.Ui.toggleSpinner(state.panel, false);
 				return;
 			}
@@ -26,7 +32,7 @@ $('.subcommContainer').bind('shopkeepPluginReady', function(pEvent, pData) {
 	};
 	
 	$('.subcommContainer').bind('subcommTabFocus', function(event, data) {
-		if (data.tabName !== 'shopkeepTabShop') {
+		if (data.tabName !== 'shopkeepTabShop' || STATE.loaded) {
 			return;
 		}
 		
