@@ -19,7 +19,7 @@ contributors
 license (3bsd)
 --------------
 
-Copyright © 2012 binarycult. All Rights Reserved.
+Copyright © 2012 Roy Laurie. All Rights Reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
